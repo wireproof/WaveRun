@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04E6975021BDFEC395DF698B /* jump.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 63609C2EFEFA784AD8806430 /* jump.m4a */; };
+		3E4CC29DE4B92BB76F44376B /* bt_restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB9C690BFEF733629471E2 /* bt_restart.png */; };
+		48F74C5B6404763237901B1E /* go.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 510EB83D897E8E3D04EB73B7 /* go.m4a */; };
+		51CA691DF9C715F2D50E3C75 /* points.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C3B4490EF9A701CBDED7CA52 /* points.m4a */; };
+		536BC86FAEF854EF4697073D /* game_title.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D8D88B5DB9FA3A890A8F64 /* game_title.png */; };
+		5490D9DF4BA2EB221BB4431E /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A9E0350DD224BA125F51B904 /* click.m4a */; };
+		76FB4C5B6D6A07828BF5F701 /* cantslowdownmenu.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 78315878FA26903337C779DF /* cantslowdownmenu.m4a */; };
+		9C1B19F122DCF9AF97AE5E4B /* bt_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 354820706BEA45807C2D253F /* bt_start.png */; };
+		CCA1E7BECF08487CD7E0AD5A /* cantslowdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 49FDD68938FADECFA4200D65 /* cantslowdown.m4a */; };
+		CCF5875628B472F2C596D971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182D993E0B0984EC9AAFA100 /* Assets.xcassets */; };
+		E512FE22919A91278AA34BD6 /* kill.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FC7DB222A930AFE40AE11852 /* kill.m4a */; };
+		F8D6E96C073B4F8EACE78217 /* WaveRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9A7002279C64742DADC197 /* WaveRunApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		182D993E0B0984EC9AAFA100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EAB9C690BFEF733629471E2 /* bt_restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_restart.png; sourceTree = "<group>"; };
+		354820706BEA45807C2D253F /* bt_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_start.png; sourceTree = "<group>"; };
+		49FDD68938FADECFA4200D65 /* cantslowdown.m4a */ = {isa = PBXFileReference; path = cantslowdown.m4a; sourceTree = "<group>"; };
+		510EB83D897E8E3D04EB73B7 /* go.m4a */ = {isa = PBXFileReference; path = go.m4a; sourceTree = "<group>"; };
+		63609C2EFEFA784AD8806430 /* jump.m4a */ = {isa = PBXFileReference; path = jump.m4a; sourceTree = "<group>"; };
+		78315878FA26903337C779DF /* cantslowdownmenu.m4a */ = {isa = PBXFileReference; path = cantslowdownmenu.m4a; sourceTree = "<group>"; };
+		A8D8D88B5DB9FA3A890A8F64 /* game_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_title.png; sourceTree = "<group>"; };
+		A9E0350DD224BA125F51B904 /* click.m4a */ = {isa = PBXFileReference; path = click.m4a; sourceTree = "<group>"; };
+		C3B4490EF9A701CBDED7CA52 /* points.m4a */ = {isa = PBXFileReference; path = points.m4a; sourceTree = "<group>"; };
+		E63544C831BDEDEF7516EBBE /* WaveRun.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = WaveRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9A7002279C64742DADC197 /* WaveRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveRunApp.swift; sourceTree = "<group>"; };
+		FC7DB222A930AFE40AE11852 /* kill.m4a */ = {isa = PBXFileReference; path = kill.m4a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0AA59816BA9794DABC9B719B /* WaveRun */ = {
+			isa = PBXGroup;
+			children = (
+				182D993E0B0984EC9AAFA100 /* Assets.xcassets */,
+				EA9A7002279C64742DADC197 /* WaveRunApp.swift */,
+				A7B76E051166B5F793240ECA /* OriginalAssets */,
+			);
+			path = WaveRun;
+			sourceTree = "<group>";
+		};
+		A7B76E051166B5F793240ECA /* OriginalAssets */ = {
+			isa = PBXGroup;
+			children = (
+				2EAB9C690BFEF733629471E2 /* bt_restart.png */,
+				354820706BEA45807C2D253F /* bt_start.png */,
+				49FDD68938FADECFA4200D65 /* cantslowdown.m4a */,
+				78315878FA26903337C779DF /* cantslowdownmenu.m4a */,
+				A9E0350DD224BA125F51B904 /* click.m4a */,
+				A8D8D88B5DB9FA3A890A8F64 /* game_title.png */,
+				510EB83D897E8E3D04EB73B7 /* go.m4a */,
+				63609C2EFEFA784AD8806430 /* jump.m4a */,
+				FC7DB222A930AFE40AE11852 /* kill.m4a */,
+				C3B4490EF9A701CBDED7CA52 /* points.m4a */,
+			);
+			path = OriginalAssets;
+			sourceTree = "<group>";
+		};
+		F46C5575ECF57F1CE30F970F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E63544C831BDEDEF7516EBBE /* WaveRun.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC1D30545351FF4AD1D9F0C9 = {
+			isa = PBXGroup;
+			children = (
+				0AA59816BA9794DABC9B719B /* WaveRun */,
+				F46C5575ECF57F1CE30F970F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1375FAAFC90D24D1ABA6BA51 /* WaveRun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63ACDCE0B2D491DF6294715C /* Build configuration list for PBXNativeTarget "WaveRun" */;
+			buildPhases = (
+				E685A5085B5C58C81D699585 /* Sources */,
+				25D9577B0CEF854955E27F57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaveRun;
+			packageProductDependencies = (
+			);
+			productName = WaveRun;
+			productReference = E63544C831BDEDEF7516EBBE /* WaveRun.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C76C7EA8D14E9137EAB5B76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 0C2DAB76CE566E114C810D40 /* Build configuration list for PBXProject "WaveRun" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FC1D30545351FF4AD1D9F0C9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F46C5575ECF57F1CE30F970F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1375FAAFC90D24D1ABA6BA51 /* WaveRun */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25D9577B0CEF854955E27F57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF5875628B472F2C596D971 /* Assets.xcassets in Resources */,
+				3E4CC29DE4B92BB76F44376B /* bt_restart.png in Resources */,
+				9C1B19F122DCF9AF97AE5E4B /* bt_start.png in Resources */,
+				CCA1E7BECF08487CD7E0AD5A /* cantslowdown.m4a in Resources */,
+				76FB4C5B6D6A07828BF5F701 /* cantslowdownmenu.m4a in Resources */,
+				5490D9DF4BA2EB221BB4431E /* click.m4a in Resources */,
+				536BC86FAEF854EF4697073D /* game_title.png in Resources */,
+				48F74C5B6404763237901B1E /* go.m4a in Resources */,
+				04E6975021BDFEC395DF698B /* jump.m4a in Resources */,
+				E512FE22919A91278AA34BD6 /* kill.m4a in Resources */,
+				51CA691DF9C715F2D50E3C75 /* points.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E685A5085B5C58C81D699585 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8D6E96C073B4F8EACE78217 /* WaveRunApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		654BBC808C2B8D88F8BC4536 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8A93FDAC25ACB08C9F4FE654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Wave Run";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wireproof.waverun;
+				PRODUCT_NAME = WaveRun;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E6537C5C5845D85D8278396 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E5CB9975309ADC4BF5F17870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Wave Run";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wireproof.waverun;
+				PRODUCT_NAME = WaveRun;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C2DAB76CE566E114C810D40 /* Build configuration list for PBXProject "WaveRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				654BBC808C2B8D88F8BC4536 /* Debug */,
+				9E6537C5C5845D85D8278396 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		63ACDCE0B2D491DF6294715C /* Build configuration list for PBXNativeTarget "WaveRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A93FDAC25ACB08C9F4FE654 /* Debug */,
+				E5CB9975309ADC4BF5F17870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C76C7EA8D14E9137EAB5B76 /* Project object */;
+}
