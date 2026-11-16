@@ -13,8 +13,11 @@
 		51CA691DF9C715F2D50E3C75 /* points.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C3B4490EF9A701CBDED7CA52 /* points.m4a */; };
 		536BC86FAEF854EF4697073D /* game_title.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D8D88B5DB9FA3A890A8F64 /* game_title.png */; };
 		5490D9DF4BA2EB221BB4431E /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A9E0350DD224BA125F51B904 /* click.m4a */; };
+		7239E3D46D0CC055EA6519CB /* square.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95A298BE30A32CA90C9E9EF8 /* square.ttf */; };
 		76FB4C5B6D6A07828BF5F701 /* cantslowdownmenu.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 78315878FA26903337C779DF /* cantslowdownmenu.m4a */; };
+		777A02DA1BD3BC784627B576 /* pickup_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B6AAA5ABA4B5A909FAD97C /* pickup_star.png */; };
 		9C1B19F122DCF9AF97AE5E4B /* bt_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 354820706BEA45807C2D253F /* bt_start.png */; };
+		A397C59185BCEA53E66A2AF1 /* player_star.png in Resources */ = {isa = PBXBuildFile; fileRef = A48218939BBACC80FE80ED59 /* player_star.png */; };
 		CCA1E7BECF08487CD7E0AD5A /* cantslowdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 49FDD68938FADECFA4200D65 /* cantslowdown.m4a */; };
 		CCF5875628B472F2C596D971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182D993E0B0984EC9AAFA100 /* Assets.xcassets */; };
 		E512FE22919A91278AA34BD6 /* kill.m4a in Resources */ = {isa = PBXBuildFile; fileRef = FC7DB222A930AFE40AE11852 /* kill.m4a */; };
@@ -29,8 +32,11 @@
 		510EB83D897E8E3D04EB73B7 /* go.m4a */ = {isa = PBXFileReference; path = go.m4a; sourceTree = "<group>"; };
 		63609C2EFEFA784AD8806430 /* jump.m4a */ = {isa = PBXFileReference; path = jump.m4a; sourceTree = "<group>"; };
 		78315878FA26903337C779DF /* cantslowdownmenu.m4a */ = {isa = PBXFileReference; path = cantslowdownmenu.m4a; sourceTree = "<group>"; };
+		95A298BE30A32CA90C9E9EF8 /* square.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = square.ttf; sourceTree = "<group>"; };
+		A48218939BBACC80FE80ED59 /* player_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_star.png; sourceTree = "<group>"; };
 		A8D8D88B5DB9FA3A890A8F64 /* game_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_title.png; sourceTree = "<group>"; };
 		A9E0350DD224BA125F51B904 /* click.m4a */ = {isa = PBXFileReference; path = click.m4a; sourceTree = "<group>"; };
+		B4B6AAA5ABA4B5A909FAD97C /* pickup_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickup_star.png; sourceTree = "<group>"; };
 		C3B4490EF9A701CBDED7CA52 /* points.m4a */ = {isa = PBXFileReference; path = points.m4a; sourceTree = "<group>"; };
 		E63544C831BDEDEF7516EBBE /* WaveRun.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = WaveRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9A7002279C64742DADC197 /* WaveRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveRunApp.swift; sourceTree = "<group>"; };
@@ -60,7 +66,10 @@
 				510EB83D897E8E3D04EB73B7 /* go.m4a */,
 				63609C2EFEFA784AD8806430 /* jump.m4a */,
 				FC7DB222A930AFE40AE11852 /* kill.m4a */,
+				B4B6AAA5ABA4B5A909FAD97C /* pickup_star.png */,
+				A48218939BBACC80FE80ED59 /* player_star.png */,
 				C3B4490EF9A701CBDED7CA52 /* points.m4a */,
+				95A298BE30A32CA90C9E9EF8 /* square.ttf */,
 			);
 			path = OriginalAssets;
 			sourceTree = "<group>";
@@ -147,7 +156,10 @@
 				48F74C5B6404763237901B1E /* go.m4a in Resources */,
 				04E6975021BDFEC395DF698B /* jump.m4a in Resources */,
 				E512FE22919A91278AA34BD6 /* kill.m4a in Resources */,
+				777A02DA1BD3BC784627B576 /* pickup_star.png in Resources */,
+				A397C59185BCEA53E66A2AF1 /* player_star.png in Resources */,
 				51CA691DF9C715F2D50E3C75 /* points.m4a in Resources */,
+				7239E3D46D0CC055EA6519CB /* square.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +245,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Wave Run";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -314,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Wave Run";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

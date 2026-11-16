@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import CoreText
 
 final class GameAudio {
     static let shared = GameAudio()
@@ -26,6 +27,11 @@ final class GameAudio {
 
 @main
 struct WaveRunApp: App {
+    init() {
+        if let url = Bundle.main.url(forResource: "square", withExtension: "ttf") {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }
     var body: some Scene {
         WindowGroup { GameView().preferredColorScheme(.dark).statusBarHidden() }
     }
@@ -38,12 +44,18 @@ struct Obstacle: Identifiable {
     let bonus: Bool
 }
 
+struct JumpTrace {
+    let position: Double
+    let fromLane: Int
+}
+
 final class Game: ObservableObject {
     enum State { case ready, playing, over }
     @Published var state: State = .ready
     @Published var distance = 0.0
     @Published var lane = 0
-    @Published var score = 0
+    @Published var stars = 0
+    @Published var jumps: [JumpTrace] = []
     @Published var best = UserDefaults.standard.integer(forKey: "best")
     @Published var colorblind = false
     @Published var hard = false
@@ -56,13 +68,17 @@ final class Game: ObservableObject {
     func start() {
         GameAudio.shared.effect("go")
         GameAudio.shared.playMusic("cantslowdown")
-        distance = 0; score = 0; lane = 0; objects = []; collected = []
+        distance = 0; stars = 0; lane = 0; objects = []; jumps = []; collected = []
         nextPosition = 4; nextID = 0; lastTime = nil; state = .playing
         fill()
     }
     func tap() {
         if state == .ready { start() }
-        else if state == .playing { lane = 1 - lane; GameAudio.shared.effect("jump") }
+        else if state == .playing {
+            jumps.append(JumpTrace(position: distance, fromLane: lane))
+            lane = 1 - lane
+            GameAudio.shared.effect("jump")
+        }
     }
     func tick(_ date: Date) {
         guard state == .playing else { lastTime = nil; return }
@@ -73,11 +89,11 @@ final class Game: ObservableObject {
         distance += delta * (hard ? 2.0 : 1.55)
         for item in objects where item.position > old && item.position <= distance && item.lane == lane && !collected.contains(item.id) {
             collected.insert(item.id)
-            if item.bonus { score += 300; GameAudio.shared.effect("points") } else {
+            if item.bonus { stars += 1; GameAudio.shared.effect("points") } else {
                 GameAudio.shared.effect("kill")
                 GameAudio.shared.playMusic("cantslowdownmenu")
                 state = .over
-                best = max(best, score + Int(distance * 100))
+                best = max(best, total)
                 UserDefaults.standard.set(best, forKey: "best")
                 break
             }
@@ -85,7 +101,9 @@ final class Game: ObservableObject {
         objects.removeAll { $0.position < distance - 2 }
         fill()
     }
-    var total: Int { score + Int(distance * 100) }
+    var distanceScore: Int { Int(distance * 100) }
+    var total: Int { distanceScore + stars * 300 }
+    func isCollected(_ id: Int) -> Bool { collected.contains(id) }
     private func fill() {
         while nextPosition < distance + 20 {
             nextID += 1
@@ -108,10 +126,12 @@ struct GameView: View {
                         .onTapGesture { game.tap() }
                     VStack {
                         HStack {
-                            Text("\(game.total)").font(.system(size: 25, weight: .black, design: .monospaced))
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text("\(game.distanceScore)").font(.custom("FORCEDSQUARE", size: 25)).foregroundStyle(.white.opacity(0.8))
+                                Text("★\(game.stars)").font(.custom("FORCEDSQUARE", size: 19)).foregroundStyle(.green)
+                            }
                             Spacer()
-                            Text("BEST \(game.best)").font(.system(size: 14, weight: .bold, design: .monospaced)).foregroundStyle(.gray)
-                        }.padding(.horizontal, 30).padding(.top, 12)
+                        }.padding(.horizontal, 20).padding(.top, 12)
                         Spacer()
                     }.allowsHitTesting(false)
                     if game.state != .playing {
@@ -154,6 +174,7 @@ struct GameView: View {
         return height * (0.5 + CGFloat(y))
     }
     func draw(context: inout GraphicsContext, size: CGSize) {
+        guard size.width > 0, size.height > 0 else { return }
         let scale = size.width / 10
         let playerX = size.width * 0.24
         for lane in 0...1 {
@@ -165,11 +186,42 @@ struct GameView: View {
             }
             context.stroke(path, with: .color(.white.opacity(0.65)), lineWidth: 2)
         }
+        // Replay the player's rail history and its straight cross-rail jumps.
+        let leftWorld = game.distance - Double(playerX / scale)
+        var traceLane = 0
+        var traceStart = 0.0
+        for jump in game.jumps {
+            if jump.position < leftWorld { traceLane = 1 - jump.fromLane; traceStart = jump.position; continue }
+            drawTrace(&context, from: max(traceStart, leftWorld), to: jump.position, lane: traceLane, playerX: playerX, scale: scale, height: size.height)
+            let x = playerX + CGFloat(jump.position - game.distance) * scale
+            var cross = Path()
+            cross.move(to: CGPoint(x: x, y: wave(jump.position, lane: jump.fromLane, height: size.height)))
+            cross.addLine(to: CGPoint(x: x, y: wave(jump.position, lane: 1 - jump.fromLane, height: size.height)))
+            context.stroke(cross, with: .color(.green.opacity(0.45)), lineWidth: 5)
+            context.stroke(cross, with: .color(.white.opacity(0.9)), lineWidth: 2)
+            let age = game.distance - jump.position
+            if age < 2.0 {
+                for i in 0..<14 {
+                    let phase = Double(i) * 2.399
+                    let spread = CGFloat(age * 25 + Double(i % 4) * 3)
+                    let centerY = wave(jump.position, lane: 1 - jump.fromLane, height: size.height)
+                    let p = CGRect(x: x + CGFloat(cos(phase)) * spread, y: centerY + CGFloat(sin(phase)) * spread, width: 3, height: 3)
+                    context.fill(Path(p), with: .color(.green.opacity(max(0, 1 - age / 2))))
+                }
+            }
+            traceLane = 1 - jump.fromLane; traceStart = jump.position
+        }
+        drawTrace(&context, from: max(traceStart, leftWorld), to: game.distance, lane: game.lane, playerX: playerX, scale: scale, height: size.height)
         for item in game.objects {
+            if game.isCollected(item.id) { continue }
             let x = playerX + CGFloat(item.position - game.distance) * scale
             guard x > -20 && x < size.width + 20 else { continue }
             let y = wave(item.position, lane: item.lane, height: size.height)
-            let color: Color = item.bonus ? .green : (game.colorblind ? .orange : .red)
+            if item.bonus {
+                context.draw(Image("pickup_star"), in: CGRect(x: x - 8, y: y - 8, width: 16, height: 16))
+                continue
+            }
+            let color: Color = game.colorblind ? .orange : .red
             var segment = Path()
             for dx in stride(from: CGFloat(-13), through: 13, by: 2) {
                 let p = CGPoint(x: x + dx, y: wave(item.position + Double(dx / scale), lane: item.lane, height: size.height))
@@ -182,8 +234,18 @@ struct GameView: View {
         }
         let y = wave(game.distance, lane: game.lane, height: size.height)
         let point = CGPoint(x: playerX, y: y)
-        context.addFilter(.shadow(color: .cyan, radius: 10))
-        context.fill(Path(ellipseIn: CGRect(x: point.x - 6, y: point.y - 6, width: 12, height: 12)), with: .color(.cyan))
-        context.fill(Path(ellipseIn: CGRect(x: point.x - 2, y: point.y - 2, width: 4, height: 4)), with: .color(.white))
+        context.draw(Image("player_star"), in: CGRect(x: point.x - 10, y: point.y - 10, width: 20, height: 20))
+    }
+    func drawTrace(_ context: inout GraphicsContext, from: Double, to: Double, lane: Int, playerX: CGFloat, scale: CGFloat, height: CGFloat) {
+        guard to > from else { return }
+        var path = Path()
+        let steps = max(1, Int((to - from) * Double(scale) / 4))
+        for i in 0...steps {
+            let world = from + (to - from) * Double(i) / Double(steps)
+            let p = CGPoint(x: playerX + CGFloat(world - game.distance) * scale, y: wave(world, lane: lane, height: height))
+            if i == 0 { path.move(to: p) } else { path.addLine(to: p) }
+        }
+        context.stroke(path, with: .color(.green.opacity(0.45)), lineWidth: 5)
+        context.stroke(path, with: .color(.white.opacity(0.9)), lineWidth: 2)
     }
 }
