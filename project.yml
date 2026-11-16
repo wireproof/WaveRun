@@ -12,7 +12,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.wireproof.waverun
         PRODUCT_NAME: WaveRun
-        CURRENT_PROJECT_VERSION: 4
+        CURRENT_PROJECT_VERSION: 5
         MARKETING_VERSION: 0.1.0
         INFOPLIST_KEY_CFBundleDisplayName: Wave Run
         GENERATE_INFOPLIST_FILE: YES

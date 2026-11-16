@@ -60,7 +60,10 @@ final class Game: ObservableObject {
         nextPosition = 4; nextID = 0; lastTime = nil; state = .playing
         fill()
     }
-    func tap() { if state == .playing { lane = 1 - lane; GameAudio.shared.effect("jump") } }
+    func tap() {
+        if state == .ready { start() }
+        else if state == .playing { lane = 1 - lane; GameAudio.shared.effect("jump") }
+    }
     func tick(_ date: Date) {
         guard state == .playing else { lastTime = nil; return }
         guard let previous = lastTime else { lastTime = date; return }
@@ -121,15 +124,23 @@ struct GameView: View {
                             Text(game.state == .ready ? "PLAY, DIE, REPEAT" : "GAME OVER")
                                 .font(.system(size: 14, weight: .bold, design: .monospaced)).tracking(2)
                             Button { game.start() } label: {
-                                Image(game.state == .ready ? "bt_start" : "bt_restart")
-                                    .resizable().scaledToFit().frame(width: 58, height: 58)
-                            }.accessibilityLabel(game.state == .ready ? "Play" : "Play again")
+                                HStack(spacing: 10) {
+                                    Image(systemName: game.state == .ready ? "play.fill" : "arrow.clockwise")
+                                    Text(game.state == .ready ? "PLAY" : "PLAY AGAIN")
+                                }
+                                .font(.system(size: 18, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white)
+                                .frame(minWidth: 180, minHeight: 52)
+                                .background(Color(red: 0, green: 0.24, blue: 0.27), in: Capsule())
+                                .overlay(Capsule().stroke(.cyan, lineWidth: 2))
+                                .contentShape(Rectangle())
+                            }.buttonStyle(.plain)
                             HStack(spacing: 20) {
                                 Button(game.hard ? "HARD" : "NORMAL") { game.hard.toggle() }
                                 Button(game.colorblind ? "COLORBLIND ON" : "COLORBLIND OFF") { game.colorblind.toggle() }
-                            }.font(.system(size: 12, weight: .bold, design: .monospaced)).foregroundStyle(.gray)
+                            }.font(.system(size: 13, weight: .bold, design: .monospaced)).foregroundStyle(.white)
                             Text("TAP TO SWITCH WAVES · AVOID HAZARDS · COLLECT BONUSES")
-                                .font(.system(size: 10, weight: .bold, design: .monospaced)).foregroundStyle(.gray)
+                                .font(.system(size: 11, weight: .bold, design: .monospaced)).foregroundStyle(.white.opacity(0.85))
                         }.padding(18).background(.black.opacity(0.82), in: RoundedRectangle(cornerRadius: 16))
                     }
                 }
